@@ -1,0 +1,4 @@
+1. hét:
+    PolarGenerator: kész
+    Gagyi: kész
+    Yoda: kész
