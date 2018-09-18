@@ -5,8 +5,8 @@ public class Csomopont{
 
     Csomopont(char b){
         betu = b;
-        balNulla = 0;
-        jobbEgy = 0;
+        balNulla = null;
+        jobbEgy = null;
     }
 
     Csomopont nullasGyermek(){

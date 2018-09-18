@@ -1,4 +1,5 @@
-import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Sqrt;
+//import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Math.sqrt;
+import java.lang.Math;
 
 public class LZWBinFa{
     void kiir(){
@@ -26,10 +27,10 @@ public class LZWBinFa{
         rszoras(gyoker);
 
         if(atlagdb - 1 > 0){
-            szoras = Sqrt(szorasosszeg / (atlagdb -1));
+            szoras = Math.sqrt(szorasosszeg / (atlagdb -1));
         }
         else{
-            szoras = Sqrt(szorasosszeg);
+            szoras = Math.sqrt(szorasosszeg);
         }
         return szoras;
     }
@@ -37,6 +38,7 @@ public class LZWBinFa{
     Csomopont fa;
     Csomopont gyoker;
     int melyseg, atlagosszeg, atlagdb;
+    double szorasosszeg;
     int maxMelyseg;
     double atlag, szoras;
     void rmelyseg(Csomopont elem){
