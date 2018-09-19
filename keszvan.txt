@@ -3,4 +3,7 @@
     Gagyi: kész
     Yoda: kész
     Homokozo: félkész
-    From Scratch: bemásolva, de nem értem
+    From Scratch: bemásolva, de nem érte
+
+2. hét:
+    Szülő-Gyerek: kész
