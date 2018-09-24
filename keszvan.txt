@@ -7,3 +7,4 @@
 
 2. hét:
     Szülő-Gyerek: kész
+    Liskov: 1 magyarázó txt-t még írni kell
