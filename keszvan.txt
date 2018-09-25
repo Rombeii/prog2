@@ -3,8 +3,11 @@
     Gagyi: kész
     Yoda: kész
     Homokozo: félkész
-    From Scratch: bemásolva, de nem érte
+    From Scratch: kész
 
 2. hét:
     Szülő-Gyerek: kész
     Liskov: 1 magyarázó txt-t még írni kell
+    AntiOO: fájlok megvannak, még 1 magyarázó txt kell
+    Ciklomatikus komplexitás: kész
+    Hello, android: fájlok, android studio megvannak, de nem sikerült még feléleszteni egyiket se
