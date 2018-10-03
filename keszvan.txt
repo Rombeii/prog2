@@ -20,3 +20,8 @@
     BPEL: -
 
 4.hét:
+    Encoding:
+    OOCWC lexer:
+    l334d1c4: kész
+    FullScreen:
+    Perceptron osztaly:
