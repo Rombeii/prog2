@@ -1,0 +1,5 @@
+1.feladat: pár bekezdéses/soros szöveg, hogy miért működik/miért nem
+2.feladat: el kell magyarázni mi az, hogyan működik, hogyan kapcsolódik a programhoz
+3.feladat:-
+4.feladat:java forrásból teljes képernyőssé
+5.feladat:-

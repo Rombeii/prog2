@@ -11,3 +11,9 @@
     AntiOO: fájlok megvannak, még 1 magyarázó txt kell
     Ciklomatikus komplexitás: kész
     Hello, android: fájlok, android studio megvannak, de nem sikerült még feléleszteni egyiket se
+
+3.hét:
+    EgyEsettan: kód begépelve, van 1-2 hiba, amire még rá kell jönni
+    BPMN: kész
+    ForwardEngineering: kész
+    ReverseEngineering: kész
