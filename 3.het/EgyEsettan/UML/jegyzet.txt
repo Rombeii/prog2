@@ -31,3 +31,10 @@ MŰVELETEK jelölése:
     statikus függvényeket aláhúzással, a virtuális függvényeket dőlt betűvel vagy {abstract} tulajdonsággal jelöljük
 
 struktúrákat <<struct>>-al, enumerátorokat pedit <<enumeration>>-al jelöljük
+
+aggregáció: tartalmazást jelölő asszociáció pl: egy vállalat több részleget tartalmaz
+            jelölése: a tartalmazó oldalán egy üres rombusz
+
+kompozíció: a tartalmazott objektum pontosan egy tartalmazó objektumhoz tartozik
+            együtt jönnek létre, és semmisülnek meg
+            jelölése: a tartalmazó oldalán teli rombusz

@@ -8,11 +8,11 @@ int main(int argc, char const *argv[])
     std::vector<Bill> bills;
 
     //Foglalas szamla nelkul
-    Reservation r;
+    Reservation r("egyes");
     reservations.push_back(r);
 
     //Foglalas szamlaval
-    Reservation r2;
+    Reservation r2("kettes");
     Bill b(&r2);
 
     reservations.push_back(r2);
