@@ -1,30 +1,8 @@
-A definíciós részben lehet makrókat definiálni és header fájlokat importálni C szintaxissal. Ide tulajdonképpen tetszőleges C kód írható.
-Az egész bemásolódik a generált C forrásállományba.
-
-A szabályok rész a lex file legfontosabb része.  Egy-egy szabály egy szabályos kifejezést és egy hozzá tartozó C kódot tartalmaz. 
-Amikor az elemző felismeri az adott szabályos kifejezést, akkor végrehajtja a hozzárendelt C kódot.
-
-A záró C kód is bemásolódik a generált C forráskódba. Jellemzően olyan függvények implementációja kerül ide, amelyek a szabályokból meghívódnak. Nagyobb programoknál célszerű ezt a részt külön állományban tárolni és fordítási időben belinkelni.
-
+A definíciós részben makrók, headerek importálása (c kód)
+A következő rész a szabályokat tartakmaza. Az első része egy szabályos kifejezés, ezt követi a C kód, ha az elemző felismer egy szabályt,
+akkor lefuttatja a hozzá tartozó C kódot.
+A végén a függvények vannak, amiket használ a szablyokhoz tartozó C kód.
 "Amikor az elemző felismeri az adott szabályos kifejezést, akkor végrehajtja a hozzárendelt C kódot."
-
-A felismerendő "kifejezéseket" a shmclient.cpp generálja.
-
-Jelen esetben ha egy kifejezés felismerésre kerül (amelyeket előre definiálunk), akkor az sscanf függvény segítségével a kifejezés részeit visszafejtjük változókba.
-Továbbá minden esetben értéket adunk egy m_cmd változónak is.
-
-Miért fontos ez?
-
-Ezeknek a változóknak az értékeit használjuk fel a lexerhez tartozó carlexer.hpp-ben.
-Ebben a carlexer.hpp-ben definiálunk bizonyos függvényeket, amelyek felhasználjuk a változókat.
-
-Hol használjuk?
-
-A carlexer.hpp-s függvényeket a traffic.h és traffic.cpp használja fel, többek között:
-	ez dolgozza fel az adatfolyamot
-	példányosítja a dolgokat
-	kezeli a "forgalmat"
-	
-
-
-
+A felismerendő "kifejezéseket" a shmclient.cpp generálja.Ha egy kifejezést  felismer, akkor az sscanf a kifejezés megadott részeit változókká alakítja,
+és minden esetben megváltoztatja a m_cmd értékét is.
+Azért lényegesek a változók, mert a carlexer.hpp-ban definiált függvények ezek a változókat használja majd fel. A carlexer.hpp-t meg majd a traffic.h és a traffic.cpp használja majd fel.
