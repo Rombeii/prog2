@@ -2,26 +2,26 @@
     PolarGenerator: kész
     Gagyi: kész
     Yoda: kész
-    Homokozo: félkész
+    Homokozo: még nem fut
     From Scratch: kész
 
 2. hét:
-    Szülő-Gyerek: kész
+    Szülő-Gyerek: kész, magyarázó txt kell
     Liskov: 1 magyarázó txt-t még írni kell
     AntiOO: fájlok megvannak, még 1 magyarázó txt kell
     Ciklomatikus komplexitás: kész
-    Hello, android: fájlok, android studio megvannak, de még írni kell egy összefoglalót
+    Hello, android: -
 
 3.hét:
-    EgyEsettan: kód begépelve, van 1-2 hiba, amire még rá kell jönni
+    EgyEsettan: kód begépelve, ki kell egészíteni a classok hiányosságait, még 1 classt írni kell
     BPMN: kész
     ForwardEngineering: kész
-    ReverseEngineering: kész
+    ReverseEngineering: kész (Umbrelloval bajok voltak)
     BPEL: -
 
 4.hét:
-    Encoding:
-    OOCWC lexer:
+    Encoding:kész, (leírás, példaprogram)
+    OOCWC lexer:kész, tutor Kiss Gergő
     l334d1c4: kész
-    FullScreen:
-    Perceptron osztaly:
+    FullScreen:kész
+    Perceptron osztaly: -

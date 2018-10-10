@@ -1,0 +1,30 @@
+A definíciós részben lehet makrókat definiálni és header fájlokat importálni C szintaxissal. Ide tulajdonképpen tetszőleges C kód írható.
+Az egész bemásolódik a generált C forrásállományba.
+
+A szabályok rész a lex file legfontosabb része.  Egy-egy szabály egy szabályos kifejezést és egy hozzá tartozó C kódot tartalmaz. 
+Amikor az elemző felismeri az adott szabályos kifejezést, akkor végrehajtja a hozzárendelt C kódot.
+
+A záró C kód is bemásolódik a generált C forráskódba. Jellemzően olyan függvények implementációja kerül ide, amelyek a szabályokból meghívódnak. Nagyobb programoknál célszerű ezt a részt külön állományban tárolni és fordítási időben belinkelni.
+
+"Amikor az elemző felismeri az adott szabályos kifejezést, akkor végrehajtja a hozzárendelt C kódot."
+
+A felismerendő "kifejezéseket" a shmclient.cpp generálja.
+
+Jelen esetben ha egy kifejezés felismerésre kerül (amelyeket előre definiálunk), akkor az sscanf függvény segítségével a kifejezés részeit visszafejtjük változókba.
+Továbbá minden esetben értéket adunk egy m_cmd változónak is.
+
+Miért fontos ez?
+
+Ezeknek a változóknak az értékeit használjuk fel a lexerhez tartozó carlexer.hpp-ben.
+Ebben a carlexer.hpp-ben definiálunk bizonyos függvényeket, amelyek felhasználjuk a változókat.
+
+Hol használjuk?
+
+A carlexer.hpp-s függvényeket a traffic.h és traffic.cpp használja fel, többek között:
+	ez dolgozza fel az adatfolyamot
+	példányosítja a dolgokat
+	kezeli a "forgalmat"
+	
+
+
+
