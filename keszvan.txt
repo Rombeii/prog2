@@ -25,3 +25,9 @@
     l334d1c4: kész
     FullScreen:kész
     Perceptron osztaly: -
+
+5.hét:
+    JDK osztályok: kész, a program kiirja őket
+    Másoló-mozgató szemantika: példaprogram bemutatja, hogy hogy működik, erről van esszé
+    Változó argumentumszámú ctor: Megvan, hogy hogy kell képet kezelni a classon kívül, már csak bele kell írni
+    esszé: a másoló-mozgató szemantikáról írtam
