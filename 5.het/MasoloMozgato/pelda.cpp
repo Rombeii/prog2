@@ -33,7 +33,7 @@ int main(){
             
         }
 
-        cucc& operator= (cucc && pelda){
+        cucc& operator= (cucc && pelda){                            //mozgató értékadás
             std::cout<<"\tMozgato ertekadas tortent!"<<std::endl;
             std::swap(b,pelda.b);
             std::swap(a,pelda.a);

@@ -1,0 +1,47 @@
+﻿Mozgató/Másoló konstruktor:
+
+A példaprogram a konstruktorok fajtáit próbálja szemléltetni, mikor melyiket használjuk, mikor van szükség mozgató/másoló konstruktor írására. Ennek 
+bemutatására egy cucc nevű osztály lett létrehozva, ami tartalmaz 2 változót, egy egész szám típusú a-t, és egy egész számra mutató b-t.
+
+A program menete a következő: felveszünk két változót, ertek1-et aminek a 8 értéket adjuk, és érték2-t aminek a 9-et. Ezek után létrehozunk egy cucc 
+típusú objektumot pelda1 néven, 10 és ertek1 értékekkel. Így konstruktor az objektum a változójának a 10 értéket adja, a b-nek memóriát foglal, és a 
+b mutatóhoz az ertek1-et hozzárendeli.
+
+Ezek után a másoló konstruktor következik, ami akkor lép életbe, ha egy objektumot akarunk létrehozni egy másik objektum alapján. Ez a programban cucc
+ pelda2(pelda1)-ként jelenik meg. Annak az oka, hogy miért lényeges az osztályban a b mutató, miért nem elég az a változó most mutatkozik meg. Másoló 
+ konstruktor írásakor fenn áll a veszélye a „sekély másolásnak”, ami azt jelenti, hogy ha nincs rendesen elkészítve, akkor a két objektum mutatórésze 
+ azonos memóriarészre mutat, ami azt jelenti, hogy ha csak az egyiken akarunk változtatni, akkor változik a másik is. Ezt el lehet kerülni, ha a másoló 
+ konstruktorban új helyet foglalunk le a mutatónak, és ahhoz rendeljük hozzá a másolni kívánt értéket („mély másolás). Ha lefuttatjuk a programot, akkor 
+ látszik is, hogy más memóriaterületre mutatnak.
+
+A másoló konstruktorhoz kapcsolódik a másoló értékadás is. Erre akkor van szükség, ha már létező objektumot akarunk egyenlővé tenni egy másik már szintén
+ létező, azonos típusú objektummal. A példában ezt a pelda2 = pelda3 sor mutatja be. Itt már nem újra foglalni memóriát, mert már 2 létezőről beszélünk, és
+  ezt már a konstruktor megtette nekünk.
+
+Létezik még a mozgató konstruktor és a mozgató értékadás. Ezek akkor aktiválódnak, ha egy objektumot jobb oldali értékként kezelünk. Ezt legkönnyebben
+ a move függvénnyel lehet bemutatni. A programban a pelda4 objektumot létrehozzuk a pelda1 alapján: pelda4(std::move(pelda1)). Ahogy a program is mutatja,
+ pelda4 megkapta a pelda1 értékeit, az pedig elvesztette őket.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
