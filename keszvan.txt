@@ -32,6 +32,15 @@
     Változó argumentumszámú ctor: Megvan, hogy hogy kell képet kezelni a classon kívül, már csak bele kell írni
     esszé: a másoló-mozgató szemantikáról írtam
 
+6.hét:
+    Gengszterek: -
+    C++ custom allokátor: kész
+    STL map rendezése: kész
+    Alternatív tabella: kész
+    Összefoglaló: -
+
+
+    
 
 
     AMIT MÉG JAVÍTANI KELL:
@@ -40,4 +49,4 @@
         -3.hét: ForwardEngineering  ->  egy másik programot meg kell próbálni, mert a nyilak változtatásával baj van
         -5.hét: Változó argumentumszámú ctor: még nem működik
         -6.hét: még egy esszét kell írni
-        
+        -6.hét: custom allokátor:   -> kód megvan, még értelmezni kell
