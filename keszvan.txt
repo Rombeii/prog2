@@ -31,3 +31,13 @@
     Másoló-mozgató szemantika: példaprogram bemutatja, hogy hogy működik, erről van esszé
     Változó argumentumszámú ctor: Megvan, hogy hogy kell képet kezelni a classon kívül, már csak bele kell írni
     esszé: a másoló-mozgató szemantikáról írtam
+
+
+
+    AMIT MÉG JAVÍTANI KELL:
+        -1.hét: homokozo ->  Java servlet
+        -2.hét: antiOO  -> még egy összehasonlítást kell írni
+        -3.hét: ForwardEngineering  ->  egy másik programot meg kell próbálni, mert a nyilak változtatásával baj van
+        -5.hét: Változó argumentumszámú ctor: még nem működik
+        -6.hét: még egy esszét kell írni
+        
