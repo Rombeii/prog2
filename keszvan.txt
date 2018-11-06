@@ -39,6 +39,13 @@
     Alternatív tabella: kész
     Összefoglaló: -
 
+7.hét:
+    Future tevékenység editor: kész
+    OOCWC Boost ASIO hálózatkezelése: -
+    SamuCam: -
+    BrainB: -
+    OSM térképre rajzolása: kész
+
 
     
 

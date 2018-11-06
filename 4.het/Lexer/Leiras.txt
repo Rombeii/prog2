@@ -5,4 +5,5 @@ A végén a függvények vannak, amiket használ a szablyokhoz tartozó C kód.
 "Amikor az elemző felismeri az adott szabályos kifejezést, akkor végrehajtja a hozzárendelt C kódot."
 A felismerendő "kifejezéseket" a shmclient.cpp generálja.Ha egy kifejezést  felismer, akkor az sscanf a kifejezés megadott részeit változókká alakítja,
 és minden esetben megváltoztatja a m_cmd értékét is.
-Azért lényegesek a változók, mert a carlexer.hpp-ban definiált függvények ezek a változókat használja majd fel. A carlexer.hpp-t meg majd a traffic.h és a traffic.cpp használja majd fel.
+Azért lényegesek a változók, mert a carlexer.hpp-ban definiált függvények ezek a változókat használja majd fel. A carlexer.hpp-t meg majd a traffic.h és
+a traffic.cpp használja majd fel.
