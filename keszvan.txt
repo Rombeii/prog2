@@ -41,9 +41,9 @@
 
 7.hét:
     Future tevékenység editor: kész
-    OOCWC Boost ASIO hálózatkezelése: -
+    OOCWC Boost ASIO hálózatkezelése: kész
     SamuCam: -
-    BrainB: -
+    BrainB: kész
     OSM térképre rajzolása: kész
 
 
