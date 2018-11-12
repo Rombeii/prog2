@@ -55,5 +55,4 @@
         -2.hét: antiOO  -> még egy összehasonlítást kell írni
         -3.hét: ForwardEngineering  ->  egy másik programot meg kell próbálni, mert a nyilak változtatásával baj van
         -5.hét: Változó argumentumszámú ctor: még nem működik
-        -6.hét: még egy esszét kell írni
         -6.hét: custom allokátor:   -> kód megvan, még értelmezni kell

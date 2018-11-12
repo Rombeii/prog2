@@ -3,8 +3,8 @@ public class Csomopont{
     Csomopont balNulla;
     Csomopont jobbEgy;
 
-    Csomopont(char b){
-        betu = b;
+    Csomopont(char c){
+        betu = c;
         balNulla = null;
         jobbEgy = null;
     }
@@ -28,4 +28,5 @@ public class Csomopont{
     char getBetu(){
         return betu;
     }
+
 }

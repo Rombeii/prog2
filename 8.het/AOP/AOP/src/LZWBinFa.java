@@ -2,6 +2,12 @@
 import java.lang.Math;
 
 public class LZWBinFa{
+	
+    private Csomopont fa;
+    private final Csomopont gyoker;
+    private int melyseg, atlagosszeg, atlagdb, maxMelyseg;
+    private double szorasosszeg, atlag, szoras;
+	
     LZWBinFa(){
         this.gyoker = new Csomopont('/');
         this.fa = gyoker;
@@ -24,7 +30,7 @@ public class LZWBinFa{
     } 
 
     double getSzoras(){
-        atlag = getAtlag();
+        atlag = this.getAtlag();
         szorasosszeg = 0.0;
         melyseg = atlagdb = 0;
 
@@ -39,12 +45,9 @@ public class LZWBinFa{
         return szoras;
     }
 
-    Csomopont fa;
-    Csomopont gyoker;
-    int melyseg, atlagosszeg, atlagdb;
-    double szorasosszeg;
-    int maxMelyseg;
-    double atlag, szoras;
+
+    
+    
     void rmelyseg(Csomopont elem){
         if(elem != null){
             melyseg++;
@@ -74,20 +77,21 @@ public class LZWBinFa{
         if(elem != null){
             ++melyseg;
             rszoras(elem.egyesGyermek());
-            rszoras(elem.egyesGyermek());
+            rszoras(elem.nullasGyermek());
             --melyseg;
-            if(elem.egyesGyermek() == null & elem.nullasGyermek() == null){
+            if(elem.egyesGyermek() == null && elem.nullasGyermek() == null){
                 atlagdb++;
                 szorasosszeg += ((melyseg - atlag) * (melyseg - atlag));
             }
         }
     }
 
-    void insert(char c){
+    public void insert(char c){
+    	//System.out.println("meghivodott");
         if(c == '0'){
             //System.out.print("kint" + c);
             if(fa.nullasGyermek() == null){
-                //System.out.print("nullasgyermek" + c);
+                //System.out.println("nullasgyermek");
                 fa.ujNullasGyermek(new Csomopont('0'));
                 fa = gyoker;
             }
@@ -99,7 +103,7 @@ public class LZWBinFa{
             if(fa.egyesGyermek() == null){
                 fa.ujEgyesGyermek(new Csomopont('1'));
                 fa = gyoker;
-                //System.out.print("egyesgyermek" + c);
+                //System.out.println("egyesgyermek");
             }
             else{
                 fa = fa.egyesGyermek();
@@ -110,11 +114,16 @@ public class LZWBinFa{
     void kiir(Csomopont elem){
         if(elem != null){
             melyseg++;
+            
             kiir(elem.egyesGyermek());
+            
             for(int i = 0; i < melyseg; i++)
                 System.out.print("---");
+            
             System.out.println(elem.getBetu() + "(" + (melyseg - 1) + ")");
+            
             kiir(elem.nullasGyermek());
+            
             melyseg--;
         }
     }

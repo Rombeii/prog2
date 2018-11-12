@@ -4,6 +4,7 @@ import java.nio.charset.*;
 
 
 public class Homokozo{
+	
     static void usage(){
         System.out.println("Usage: java Homokozo in_file out_file");
     }
@@ -17,45 +18,28 @@ public class Homokozo{
         
         File file = new File(args[0]); 
 
-        BufferedReader reader = new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                Charset.forName("UTF-8")
-            )
-        );
-
-        int b;                      
+        int b;
+        char c;
         LZWBinFa binFa = new LZWBinFa();
         boolean kommentben = false;
-
-        while((b = reader.read()) != -1){
-            //System.out.println((char)b);
-            char c = (char) b;
-
-            if(c == 0x0a)
-                break;
-        }
         
-        reader.close();
-
-        BufferedReader reader2 = new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                Charset.forName("UTF-8")
-            )
-        );
+        
+        FileReader r = new FileReader(file);
+        BufferedReader bufferedReader = new BufferedReader(r);
+       
 
 
-        while((b = reader2.read()) != -1){
-            //System.out.println((char)b);
-            //char c = (char) b;
+        while((b = bufferedReader.read()) != -1){
 
-            if(b == 0x3e){
+        	c = (char)b;
+        	System.out.println(c);
+        	
+            if(c == '>'){
                 kommentben = true;
                 continue;
             }
                 
-            if(b == 0x0a){
+            if(c == '\n'){
                 kommentben = false;
                 continue;
             }
@@ -63,20 +47,23 @@ public class Homokozo{
             if(kommentben)
                 continue;
             
-            if(b == 0x4e)
+            if(c == 'N')
                 continue;
 
             for (int i = 0; i < 8; i++){
-                if ((b & 0x80)== 0x80)
+            	//System.out.println(c);
+                if ((c & 0x80) == 0x80)
                     binFa.insert('1');
                 else
                     binFa.insert('0');
-                b <<=1;
+                c <<= 1;
             }
                 
                 
         }
-
+        
+        bufferedReader.close();
+        
         binFa.kiir(binFa.getGyoker());
         System.out.println("depth = " + binFa.getMelyseg());
         System.out.println("mean = " + binFa.getAtlag());
