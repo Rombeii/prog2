@@ -1,0 +1,10 @@
+CustomAllocator:
+
+A program futtatáskor létrehoz egy osztott memóriaterületet. Ezt az shmgett-el allokálljuk, shmel pedig felcsatoljuk.
+Ezek után létrej9n egy alloconj nevű, CustomAlloc<int> típusú objektum. Ez azért lesz hasznos, mert ennek segtségével
+érjük el az allocat változónak függvényét, amivel memóriát foglalhatunk.
+Ha ez kész, akkor egy osztott memória foglalására képes gyermekfolyamatot hozunk létre. Ezek után létrehozunk 1 vektort,
+és 3 számot teszünk bele.
+
+Míg ez megy, addig a fő folyamatunk egy kicsit pihen, mikor a helyfoglalás befejeződik, a programunk kiolvassa a foglalt
+memóriából a beletöltött adatainkat;
