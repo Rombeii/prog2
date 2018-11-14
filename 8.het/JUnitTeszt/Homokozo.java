@@ -1,13 +1,9 @@
-import java.io.BufferedReader;
-import java.io.File;
-import java.io.FileReader;
+import java.io.*;
+import java.nio.charset.*;
 
 
 
 public class Homokozo{
-	
-	public static LZWBinFa binFa = new LZWBinFa();
-	
 	
     static void usage(){
         System.out.println("Usage: java Homokozo in_file out_file");
@@ -24,7 +20,7 @@ public class Homokozo{
 
         int b;
         char c;
-        //LZWBinFa binFa = new LZWBinFa();
+        LZWBinFa binFa = new LZWBinFa();
         boolean kommentben = false;
         
         
@@ -36,7 +32,7 @@ public class Homokozo{
         while((b = bufferedReader.read()) != -1){
 
         	c = (char)b;
-        	//System.out.println(c);
+        	System.out.println(c);
         	
             if(c == '>'){
                 kommentben = true;
@@ -56,14 +52,10 @@ public class Homokozo{
 
             for (int i = 0; i < 8; i++){
             	//System.out.println(c);
-                if ((c & 0x80) == 0x80) {
+                if ((c & 0x80) == 0x80)
                     binFa.insert('1');
-                    System.out.print('1');
-                }
-                else {
+                else
                     binFa.insert('0');
-                	System.out.print('0');
-                }
                 c <<= 1;
             }
                 
@@ -72,7 +64,6 @@ public class Homokozo{
         
         bufferedReader.close();
         
-        System.out.println();
         binFa.kiir(binFa.getGyoker());
         System.out.println("depth = " + binFa.getMelyseg());
         System.out.println("mean = " + binFa.getAtlag());

@@ -7,37 +7,28 @@ import android.graphics.Paint;
 import android.graphics.Point;
 import android.graphics.Rect;
 
-public class Meh implements GameObject {
+public class Meh extends GameObject {
 
-    private Bitmap bitmap;
-    private int x, y;                                                                               //a méhecske koordinátái
-
-    public void setX(int x) {
-        this.x = x;
+    public Meh(Bitmap img, int speed, int startingX, int startingY) {
+        super(img, speed, startingX, startingY);
+        setResizedBitmap(getBitmap(), 0.1);
     }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public Meh(Bitmap img) {
-        this.bitmap = img;
-    }
-
-    @Override
-    public void draw(Canvas canvas) {
-        canvas.drawBitmap(bitmap,x-bitmap.getWidth()/2,y-bitmap.getHeight()/2, null);
-    }
 
     @Override
     public void update() {
+        if(getCurrentY() != getTowardsY() || getCurrentX() != getTowardsX()){
+            if(getCurrentX() < getTowardsX())
+                setCurrentX(getCurrentX()+getSpeed());
+            if(getCurrentY() < getTowardsY())
+                setCurrentY(getCurrentY()+getSpeed());
+            if(getCurrentX() > getTowardsX())
+                setCurrentX(getCurrentX()-getSpeed());
+            if(getCurrentY() > getTowardsY())
+                setCurrentY(getCurrentY()-getSpeed());
+        }
 
     }
 
+
 }
-
-   /* public void update(Point point){
-        bitmap.
-        //rectangle.set(point.x - rectangle.width()/2,point.y - rectangle.height()/2, point.x + rectangle.width()/2,point.y + rectangle.height()/2);
-    }*/
-

@@ -16,6 +16,8 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread thread;
     private Meh meh;
+    private Tik[] tikek;
+
     //private Point playerPoint;
 
 
@@ -25,9 +27,14 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
         getHolder().addCallback(this);                                                              //események megszakításához kell
 
-        meh = new Meh(BitmapFactory.decodeResource(getResources(),R.drawable.meh));
-        //meh = new Meh(new Rect(100, 100, 200, 200), Color.rgb(255, 0, 0 ));
-        //playerPoint= new Point(150, 150);
+        meh = new Meh(BitmapFactory.decodeResource(getResources(),R.drawable.meh), 2, this.getResources().getDisplayMetrics().widthPixels/2, this.getResources().getDisplayMetrics().heightPixels/2);
+        //a mehecske a kepernyo kozepen jelenjen meg
+        tikek = new Tik[4];
+        tikek[0] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, this.getResources().getDisplayMetrics().widthPixels-120, this.getResources().getDisplayMetrics().heightPixels-120);
+        tikek[1] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, this.getResources().getDisplayMetrics().widthPixels-120,120);
+        tikek[2] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, 120, this.getResources().getDisplayMetrics().heightPixels-120);
+        tikek[3] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, 120,120);
+
 
         setFocusable(true);
     }
@@ -63,6 +70,25 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     public void update(){
         meh.update();
+        tikek[0].update();
+        tikek[1].update();
+        tikek[2].update();
+        tikek[3].update();
+
+        for(int i = 0; i < 8; i++){
+            if(meh.getCurrentX() <= tikek[0].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[0].getCoordsX()[i] &&
+                    meh.getCurrentY() <= tikek[0].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[0].getCoordsY()[i])
+                thread.setRunning(false);
+            else if(meh.getCurrentX() <= tikek[1].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[1].getCoordsX()[i] &&
+                    meh.getCurrentY() <= tikek[1].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[1].getCoordsY()[i])
+                thread.setRunning(false);
+            else if(meh.getCurrentX() <= tikek[2].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[2].getCoordsX()[i] &&
+                    meh.getCurrentY() <= tikek[2].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[2].getCoordsY()[i])
+                thread.setRunning(false);
+            else if(meh.getCurrentX() <= tikek[3].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[3].getCoordsX()[i] &&
+                    meh.getCurrentY() <= tikek[3].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[3].getCoordsY()[i])
+                thread.setRunning(false);
+        }
     }
 
     @Override
@@ -70,9 +96,9 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         //return super.onTouchEvent(event);
         switch (event.getAction()){
             case MotionEvent.ACTION_DOWN:
-            case MotionEvent.ACTION_MOVE:
-                meh.setX((int)event.getX());
-                meh.setY((int)event.getY());
+            case MotionEvent.ACTION_MOVE:                                                           //lenyomással jelezhetjük, hogy merrre menjen a méhecskénk
+                meh.setTowardsX((int)event.getX());
+                meh.setTowardsY((int)event.getY());
                 //playerPoint.set((int)event.getX(), (int)event.getY());
         }
 
@@ -83,14 +109,18 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     @Override
     public void draw(Canvas canvas) {
         super.draw(canvas);
-        //Bitmap bitmap = Bitmap.createBitmap(1000, 1000, Bitmap.Config.ARGB_8888);
 
 
-        canvas.drawColor(Color.BLUE);
-        //canvas.drawBitmap(bitmap,0, 0,paint);
+        canvas.drawColor(Color.WHITE);
+
         meh.draw(canvas);
+        tikek[0].draw(canvas);
+        tikek[1].draw(canvas);
+        tikek[2].draw(canvas);
+        tikek[3].draw(canvas);
+
         if(canvas != null){
-            //characterSprite.draw(canvas);
+
         }
     }
 
