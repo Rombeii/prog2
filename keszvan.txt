@@ -1,5 +1,6 @@
 1. hét:
-    PolarGenerator: kész, még 1 leírás kell a mappába
+    PolarGenerator: kész, van Cpps és Javás megvalósítás is, a program 2 random számot generál, az egyiket visszaadja, a másikat menti. Ha megint
+                    meghívjuk, akkor a mentettet adja vissza. Ha újra meghívjuk 2 új számot generál, és így tovább. A mappában van kép a futásról.
 
     Gagyi: kész, van 1 program, aminél végtelen ciklust idézünk elő, a másik pedig lefut rendesen (erről van kép). Erre ad magyarázatot
             a magyarazat.txt
@@ -27,7 +28,7 @@
     Hello, android: -
 
 3.hét:
-    EgyEsettan: kész, a könyvrészletet elolvastam, a kód is megvan
+    EgyEsettan: kész, a könyvrészletet elolvastam, a kód megtalálható a mappában
 
     BPMN: kész, a tervezett BPMN bemutatja a védés azon szakaszait, ahol meg lehet bukni, a mappájában van kép a végeredményről
             és a bpmn fájl
