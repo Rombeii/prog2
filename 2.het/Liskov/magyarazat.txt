@@ -1,0 +1,8 @@
+A példa azért van, hogy rámutasson a helyes objektum orientált osztály tervezésére.
+Ebben a példában ez úgy mutatkozik meg, hogy a Viragrossz programunkban minden virágnak
+van szur() függvénye, pedig a Virág osztályból származtatjuk a Hóvirág osztályt is, ami
+ugye nem szúr, tehát a Hóvirágot nem lehetne helyettesíten minden Virág helyére, ezért 
+ellent mond a Liskov elvnek.
+
+Ennek a hibának javítása a Viragjo program. Itt már nem a Virágnak van szur() függvénye, hanem
+azoknak az osztályoknak, amiket abból származtatunk, és tudnak szúrni (jelen esetben ez a rózsa).

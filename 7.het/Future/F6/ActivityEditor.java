@@ -1,3 +1,17 @@
+import javafx.animation.PauseTransition;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.scene.control.TextInputDialog;
+import javafx.scene.control.TreeItem;
+import javafx.scene.layout.HBox;
+import javafx.util.Duration;
+
+import javax.swing.*;
+import java.awt.*;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Optional;
+
 /*
  * ActivityEditor.java
  *
@@ -237,6 +251,18 @@ class FileTree extends javafx.scene.control.TreeView<java.io.File> {
                 getTreeItem().getChildren().add(newProps);
             });
 
+            //-----------------------------------------------ITT LETT BELENYULVA----------------------------------------------
+            javafx.scene.control.MenuItem propsDelete = new javafx.scene.control.MenuItem("Elem törlése");
+            addMenu.getItems().add(propsDelete);
+            propsDelete.setOnAction((javafx.event.ActionEvent evt) -> {
+                java.io.File torlendo = getTreeItem().getValue();
+                File atnevezett = new File("ikszde");
+                torlendo.renameTo(atnevezett);
+
+
+
+            });
+            //----------------------------------------------EDDIG-------------------------------------------------------
         }
 
         @Override
@@ -404,6 +430,20 @@ public class ActivityEditor extends javafx.application.Application {
     @Override
     public void start(javafx.stage.Stage stage) {
 
+        long seconds;
+
+        TextInputDialog dialog = new TextInputDialog("Nagy számot csak saját felelősségre!");
+        dialog.setTitle("Függőség megelőzése");
+        dialog.setHeaderText("A program annyira jó, hogy függőséget okozhat. Mennyi ideig kívánod használni?");
+        dialog.setContentText("Használati idő (másodperc)");
+        Optional<String> result = dialog.showAndWait();
+        if(result.isPresent()){
+            seconds = Long.parseLong(result.get());
+        }
+        else
+            seconds = 5L;
+
+
         java.util.Map<String, String> cmdParams = this.getParameters().getNamed();
 
         stage.setTitle("FUTURE 6 - TEV. és TEV. TUL. SZERKESZTŐ/ACT & ACT PROPS EDITOR");
@@ -476,6 +516,12 @@ public class ActivityEditor extends javafx.application.Application {
         stage.setHeight(primaryScreenBounds.getHeight());
 
         stage.show();
+
+        PauseTransition delay = new PauseTransition(Duration.seconds(seconds));
+        delay.setOnFinished(event -> stage.close());
+        delay.play();
     }
+
+
 
 }

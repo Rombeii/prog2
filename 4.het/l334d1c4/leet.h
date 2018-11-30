@@ -129,4 +129,4 @@ std::string Leet::atalakito(std::string szoveg){
     return leet;
 }
 
-#endif LEET_H
+#endif

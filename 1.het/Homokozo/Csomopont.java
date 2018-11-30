@@ -1,31 +1,31 @@
 public class Csomopont{
-    char betu;
-    Csomopont balNulla;
-    Csomopont jobbEgy;
+    private char betu;
+    private Csomopont balNulla;
+    private Csomopont jobbEgy;
 
     Csomopont(char c){
-        betu = c;
-        balNulla = null;
-        jobbEgy = null;
+        this.betu = c;
+        this.balNulla = null;
+        this.jobbEgy = null;
     }
 
-    Csomopont nullasGyermek(){
+    public Csomopont nullasGyermek(){
         return balNulla;
     }
 
-    Csomopont egyesGyermek(){
+    public Csomopont egyesGyermek(){
         return jobbEgy;
     }
 
-    void ujNullasGyermek(Csomopont gy){
+    public void ujNullasGyermek(Csomopont gy){
         balNulla = gy;
     }
 
-    void ujEgyesGyermek(Csomopont gy){
+    public void ujEgyesGyermek(Csomopont gy){
         jobbEgy = gy;
     }
 
-    char getBetu(){
+    public char getBetu(){
         return betu;
     }
 

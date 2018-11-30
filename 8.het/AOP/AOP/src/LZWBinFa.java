@@ -1,5 +1,7 @@
 //import org.graalvm.compiler.core.common.type.ArithmeticOpTable.UnaryOp.Math.sqrt;
 import java.lang.Math;
+import java.io.BufferedWriter;
+import java.io.IOException;
 
 public class LZWBinFa{
 	
@@ -111,18 +113,22 @@ public class LZWBinFa{
         }
     }
 
-    void kiir(Csomopont elem){
+    void kiir(Csomopont elem, BufferedWriter bufferedWriter) throws IOException{
         if(elem != null){
             melyseg++;
             
-            kiir(elem.egyesGyermek());
+            kiir(elem.egyesGyermek(), bufferedWriter);
             
-            for(int i = 0; i < melyseg; i++)
-                System.out.print("---");
+            for(int i = 0; i < melyseg; i++) {
+            	bufferedWriter.write("---");
+            	System.out.print("---");
+            }
+
             
             System.out.println(elem.getBetu() + "(" + (melyseg - 1) + ")");
+            bufferedWriter.write(elem.getBetu() + "(" + (melyseg - 1) + ")\n");
             
-            kiir(elem.nullasGyermek());
+            kiir(elem.nullasGyermek(), bufferedWriter);
             
             melyseg--;
         }

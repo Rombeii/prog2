@@ -12,11 +12,16 @@ import android.view.MotionEvent;
 import android.view.SurfaceView;
 import android.view.SurfaceHolder;
 
+import java.util.Random;
+
+import static android.graphics.Color.rgb;
+
 public class GameView extends SurfaceView implements SurfaceHolder.Callback {
 
     private MainThread thread;
     private Meh meh;
     private Tik[] tikek;
+    private Virag[] viragok;
 
     //private Point playerPoint;
 
@@ -35,6 +40,25 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         tikek[2] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, 120, this.getResources().getDisplayMetrics().heightPixels-120);
         tikek[3] = new Tik(BitmapFactory.decodeResource(getResources(),R.drawable.tik), 4, 120,120);
 
+        viragok = new Virag[15];
+
+        Random random = new Random();
+        int szam = 0;
+        int posX = 0;
+        int posY = 0;
+        for(int i = 0; i < 15; i++){
+            szam = random.nextInt(1000);
+            posX = random.nextInt(getResources().getDisplayMetrics().widthPixels);
+            posY = random.nextInt(getResources().getDisplayMetrics().heightPixels);
+            if(szam % 3 == 0){
+                viragok[i] = new Virag(BitmapFactory.decodeResource(getResources(),R.drawable.virag1), 4, posX, posY);
+            }else if(szam % 3 == 1){
+                viragok[i] = new Virag(BitmapFactory.decodeResource(getResources(),R.drawable.virag2), 4, posX, posY);
+            }else{
+                viragok[i] = new Virag(BitmapFactory.decodeResource(getResources(),R.drawable.virag3), 4, posX, posY);
+            }
+
+        }
 
         setFocusable(true);
     }
@@ -62,33 +86,45 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
         while(retry){
             try{
                 thread.setRunning(false);
-                thread.join();                                                                      //Lezárja a threadet
+                thread.join();
             } catch (InterruptedException e){e.printStackTrace();}
             retry = false;
         }
     }
 
     public void update(){
+        for(int i = 0; i < 4; i++){
+            if (CollisionDetector.isCollisionDetected(meh.getResizedBitmap(), meh.getCurrentX() - meh.getResizedBitmap().getWidth()/2, meh.getCurrentY() - meh.getResizedBitmap().getHeight()/2,
+                    tikek[i].getResizedBitmap(), tikek[i].getCurrentX() - tikek[0].getResizedBitmap().getWidth()/2, tikek[i].getCurrentY() - tikek[0].getResizedBitmap().getHeight()/2)){
+                System.out.println("utkozik");
+                thread.setRunning(false);
+            }
+        }
+
+        for(int i = 0; i < 15; i++){
+            if (CollisionDetector.isCollisionDetected(meh.getResizedBitmap(), meh.getCurrentX() - meh.getResizedBitmap().getWidth()/2, meh.getCurrentY() - meh.getResizedBitmap().getHeight()/2,
+                    viragok[i].getResizedBitmap(), viragok[i].getCurrentX() - viragok[0].getResizedBitmap().getWidth()/2, viragok[i].getCurrentY() - viragok[0].getResizedBitmap().getHeight()/2)){
+                viragok[i].setCanSee(false);
+            }
+        }
+
+
         meh.update();
         tikek[0].update();
         tikek[1].update();
         tikek[2].update();
         tikek[3].update();
 
-        for(int i = 0; i < 8; i++){
-            if(meh.getCurrentX() <= tikek[0].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[0].getCoordsX()[i] &&
-                    meh.getCurrentY() <= tikek[0].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[0].getCoordsY()[i])
-                thread.setRunning(false);
-            else if(meh.getCurrentX() <= tikek[1].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[1].getCoordsX()[i] &&
-                    meh.getCurrentY() <= tikek[1].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[1].getCoordsY()[i])
-                thread.setRunning(false);
-            else if(meh.getCurrentX() <= tikek[2].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[2].getCoordsX()[i] &&
-                    meh.getCurrentY() <= tikek[2].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[2].getCoordsY()[i])
-                thread.setRunning(false);
-            else if(meh.getCurrentX() <= tikek[3].getCoordsX()[i] && meh.getCurrentX() + meh.getResizedBitmap().getWidth() >= tikek[3].getCoordsX()[i] &&
-                    meh.getCurrentY() <= tikek[3].getCoordsY()[i] && meh.getCurrentY() + meh.getResizedBitmap().getHeight() >= tikek[3].getCoordsY()[i])
-                thread.setRunning(false);
+        boolean won = false;
+        for(int i = 0; i < 15; i++){                                                                //amíg van olyan virág, amit látunk, addig nem nyerünk
+            if(viragok[i].getCanSee() == true)
+                won = false;
         }
+
+        if(won)
+            thread.setRunning(false);
+
+
     }
 
     @Override
@@ -110,14 +146,20 @@ public class GameView extends SurfaceView implements SurfaceHolder.Callback {
     public void draw(Canvas canvas) {
         super.draw(canvas);
 
-
         canvas.drawColor(Color.WHITE);
+
+
+        for(int i = 0; i < 15; i++){
+            if(viragok[i].getCanSee() == true)
+                viragok[i].draw(canvas);
+        }
 
         meh.draw(canvas);
         tikek[0].draw(canvas);
         tikek[1].draw(canvas);
         tikek[2].draw(canvas);
         tikek[3].draw(canvas);
+
 
         if(canvas != null){
 

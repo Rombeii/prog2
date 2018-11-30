@@ -1,58 +1,118 @@
 1. hét:
-    PolarGenerator: kész
-    Gagyi: kész
-    Yoda: kész
-    Homokozo: még nem fut
-    From Scratch: kész
+    PolarGenerator: kész, még 1 leírás kell a mappába
+
+    Gagyi: kész, van 1 program, aminél végtelen ciklust idézünk elő, a másik pedig lefut rendesen (erről van kép). Erre ad magyarázatot
+            a magyarazat.txt
+
+    Yoda: kész, 2 program van, az egyik a Yoda feltételnek megfelel, míg a másiknál java.lang.NullPointerExceptiont kapunk, tartozik hozzá
+            egy kép is, ami a 2 programot mutatja futás közben
+
+    Homokozo: kész, össze lett hasonlítva a kimenete a cpp-s programmal, erről van lép is. Ha a java servletet is akarjuk tesztelni eclipse-ben
+                 célszerű elindítani, de erről is van kép (ott a project egyben van az AOP-vel és a JunitTest-tel).
+                
+    From Scratch: kész, a futásról kép a mappában, de nem lesz beszámítva
 
 2. hét:
-    Szülő-Gyerek: kész, magyarázó txt kell
-    Liskov: 1 magyarázó txt-t még írni kell
-    AntiOO: fájlok megvannak, még 1 magyarázó txt kell
-    Ciklomatikus komplexitás: kész
+    Szülő-Gyerek: kész, van 1 cpp-s és egy javás verzió, van 1 kép mellékelve, amelyik megmutatja, és megmagyarázza, hogy hogy futnak, és hogy
+                    milyen errort kapunk, ha a gyerek függvényét akarnánk meghívni
+
+    Liskov: kész, a probléma 2 nyelven van bemutatva (Java, Cpp), ezeken belül van 1 program, amelyik sérti a Liskov helyettesítést, és 1 olyan,
+            amelyik nem, magyarázat mellékelve, kép nincs, mert felesleges, a programok csak bemutatásra alkalmasak, semmi funkciójuk nincs
+
+    AntiOO: kész, az összehasonlításról vannak képek, a 10 a 6/7/8-onadik számjegye ki van számolva mind a 4 programozási nyelven. A futási idő
+            le van mérve, és egy összehasonlítás is van írva
+
+    Ciklomatikus komplexitás: kész, egy magyarázat mellékelve, benne, hogy hogyan számoljuk ki, és hogy mi alapján
+
     Hello, android: -
 
 3.hét:
-    EgyEsettan: kód begépelve, ki kell egészíteni a classok hiányosságait, még 1 classt írni kell
-    BPMN: kész
-    ForwardEngineering: kész
-    ReverseEngineering: kész (Umbrelloval bajok voltak)
+    EgyEsettan: kész, a könyvrészletet elolvastam, a kód is megvan
+
+    BPMN: kész, a tervezett BPMN bemutatja a védés azon szakaszait, ahol meg lehet bukni, a mappájában van kép a végeredményről
+            és a bpmn fájl
+
+    ForwardEngineering: kész, az egyetem egy része lett lemodellezve, erről a kép és a generált kód a mappájában
+
+    ReverseEngineering: kész, a z3a7.cpp-hez Umbrelló segítségével UML-t generáltam, a feladathoz tartozik egy
+                        magyarázó txt
+    
     BPEL: -
 
 4.hét:
-    Encoding:kész, (leírás, példaprogram)
-    OOCWC lexer:kész, tutor Kiss Gergő
-    l334d1c4: kész
-    FullScreen:kész
+    Encoding: kész, a példához tartozik egy leírás is, valamint 2 kép, az egyik azt bizonyítja, hogy a program lefut,
+                a másik pedig bemutatja, hogy ha karakterkódolást váltunk, akkor milyen hibát kapunk (Ebben az esetben
+                Big5-re állítottam (Hagyományos Kínai))
+
+    OOCWC lexer:kész, leírás mellékelve tutor: Kiss Gergő
+
+    l334d1c4: kész, a program a három kismalac egy részét fordítja leetcode-ra
+
+    FullScreen: kész, a programban igazi gyilkossá válhatunk, kegyetlenül végezhetünk egy ártatlan méhecskével, két kép van mellékelve
+
     Perceptron osztaly: -
 
 5.hét:
-    JDK osztályok: kész, a program kiirja őket
-    Másoló-mozgató szemantika: példaprogram bemutatja, hogy hogy működik, erről van esszé
-    Változó argumentumszámú ctor: Megvan, hogy hogy kell képet kezelni a classon kívül, már csak bele kell írni
-    esszé: a másoló-mozgató szemantikáról írtam
+    JDK osztályok: kész, a program kilistázza a JDK összes osztályát
+
+    Másoló-mozgató szemantika: kész, a program bemutatja, hogy hogyan működnek a feladatban kért értékadások/konstruktorok,
+                                a mappában a kép bizonyítja, hogy fut
+
+    Változó argumentumszámú ctor: kész, a program kap egy képet, és egy másikat ad vissza, a futásról kép a mappában
+    
+    Összefoglaló: a másoló-mozgató szemantikáról írtam
+
+    RSA törés: -
 
 6.hét:
+    C++ custom allokátor: kész, kód a mappában, nincs magyarázat a mappában, mert erről van összefoglalóm
+
+    STL map rendezése: kész, nem a fénykardot használtam, saját példát írtam, a működésről kép a mappában
+
+    Alternatív tabella: kész, a futásról van kép, a magyarázat a Comparable interfészről a mappában
+    
+    Összefoglaló: kész, a custom allokátorról van példa esszé
+
     Gengszterek: -
-    C++ custom allokátor: kész
-    STL map rendezése: kész
-    Alternatív tabella: kész
-    Összefoglaló: -
 
 7.hét:
-    Future tevékenység editor: kész
+    Future tevékenység editor: kész, a program annyira jó, hogy szükség van egy időzítőre, mert nélküle órákat töltenénk
+                                el előtte. Ezt implementáltam.(Kép a mappában)
+
     OOCWC Boost ASIO hálózatkezelése: kész
+
+    BrainB: kész, van egy txt, ami elmagyarázza a signal-slot mechanizmust, és a futásról is van kép
+
+    OSM térképre rajzolása: kész, Debrecen térképén bejelöltem 3 db padot a jxmapviewer segítségével
+                            , a futásról kép a mappában
+
     SamuCam: -
-    BrainB: kész
-    OSM térképre rajzolása: kész
+
+8.hét:
+    Port scan: kész, a port szkennelő forrásról a mappában van a leírás
+
+    AOP: kész, az LZWBinFa forrásában megszámolja, hogy hány db 1-est és 0-st szúr be, futásról a mappában kép
+
+    Android játék: a játék működik, de még javításra szorul
+
+    Junit test: a program kész, feleslegesnek gondoltam, hogy kettéválasszam az AOP-től, így egy projectben vannak, tehát a forrása 
+                az AOP mappájában van. A Junit teszt mappájában van egy kép a futtatásról, és egy a feladat levezetéséről, erre alapoztam
+                a junit tesztet
+
+    Összefoglaló: -
+
+9.hét:
+    MNIST: kész, a mappában van a forráskód és a kép, tanárúr példája alapján csináltam, de módosítani kellett rajta, hogy működjön
+
+    Deep MNIST: kész, a mappában van kép, a program a tensorflow mnistDeep.py példája alapján készült a tanuló része, a felismerés része
+    pedig a rendes Mnist-ből lett álakítva 
+
+    CIFAR-10:
+
+    TF objektum detektálója: kész, az app a telefonon rajta van, van 1-1 példa a programokra a mappában
 
 
-    
 
 
-    AMIT MÉG JAVÍTANI KELL:
-        -1.hét: homokozo ->  Java servlet
-        -2.hét: antiOO  -> még egy összehasonlítást kell írni
-        -3.hét: ForwardEngineering  ->  egy másik programot meg kell próbálni, mert a nyilak változtatásával baj van
-        -5.hét: Változó argumentumszámú ctor: még nem működik
-        -6.hét: custom allokátor:   -> kód megvan, még értelmezni kell
+
+        

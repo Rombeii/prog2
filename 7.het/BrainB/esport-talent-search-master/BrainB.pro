@@ -36,10 +36,33 @@ TEMPLATE = app
 TARGET = BrainB
 INCLUDEPATH +=/usr/local/include/opencv4/opencv2
 
-HEADERS += BrainBThread.h  BrainBWin.h \
-    ../../../../../../../usr/local/include/opencv4/opencv2/opencv.hpp
+HEADERS += BrainBThread.h  BrainBWin.h
+    #../../../../../../../usr/local/include/opencv4/opencv2/opencv.hpp
+    /opt/include/opencv2/opencv.hpp
 SOURCES += BrainBThread.cpp  BrainBWin.cpp  main.cpp
 
 QT_CONFIG -= no-pkg-config
 unix: CONFIG += link_pkgconfig
 unix: PKGCONFIG += opencv
+
+unix:!macx: LIBS += -L$$PWD/../../../../../../../usr/local/lib/ -lopencv_xphoto
+
+INCLUDEPATH += $$PWD/../../../../../../../opt/opencv/include
+DEPENDPATH += $$PWD/../../../../../../../opt/opencv/include
+
+win32:CONFIG(release, debug|release): LIBS += -L$$PWD/../../../../../../../usr/local/lib/release/ -lopencv_core
+else:win32:CONFIG(debug, debug|release): LIBS += -L$$PWD/../../../../../../../usr/local/lib/debug/ -lopencv_core
+else:unix: LIBS += -L$$PWD/../../../../../../../usr/local/lib/ -lopencv_core
+
+INCLUDEPATH += $$PWD/../../../../../../../usr/local/include
+DEPENDPATH += $$PWD/../../../../../../../usr/local/include
+
+unix:!macx: LIBS += -L$$PWD/../../../../../../../usr/local/lib/ -lopencv_core
+
+INCLUDEPATH += $$PWD/../../../../../../../opt/opencv/include/opencv2
+DEPENDPATH += $$PWD/../../../../../../../opt/opencv/include/opencv2
+
+unix:!macx: LIBS += -L$$PWD/../../../../../../../usr/local/lib/ -lopencv_core
+
+INCLUDEPATH += $$PWD/../../../../../../../usr/local/include
+DEPENDPATH += $$PWD/../../../../../../../usr/local/include

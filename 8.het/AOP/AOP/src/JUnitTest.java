@@ -10,15 +10,15 @@ class JUnitTest {
 		//be1[0] = "be.txt";
 		//be1[1] = "ki.txt";
 		
-		Homokozo test = new Homokozo();
+		//Homokozo test = new Homokozo();
 		
 		//test.main(new String[] {"be.txt", "ki.txt"});
 		
 		Homokozo.main(new String[] {"be.txt", "ki.txt"});
 		
-		assertEquals(3, test.binFa.getMelyseg(), "a melysegnek 3-nak kell lennie");
-		assertEquals(2.5, test.binFa.getAtlag(), "az atlagnak 2.5-nek kell lennie");
-		assertEquals(1, test.binFa.getSzoras(), "a szorasnak 1-nek kell lennie");
+		assertEquals(3, Homokozo.binFa.getMelyseg(), "a melysegnek 3-nak kell lennie");
+		assertEquals(2.5, Homokozo.binFa.getAtlag(), "az atlagnak 2.5-nek kell lennie");
+		assertEquals(1, Homokozo.binFa.getSzoras(), "a szorasnak 1-nek kell lennie");
 	
 	}
 

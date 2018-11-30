@@ -1,0 +1,14 @@
+Feladat:
+Mutassunk rá a kompozícióra és az aggregációra!
+
+Aggregáció:
+    Az aggregáció egy tartalmazást jelölő asszociáció, a példánkban ez úgy jelenik meg,
+    hogy minden csomóponthoz tartozik 0 vagy 1 db balNulla és jobbNulla. A diagrammon ezt
+    az üres rombusz, a forráskódban pedig a Csomópont osztályon belül a Csomopont* balNulla
+    és a Csompont* jobbNulla jelöli.
+
+Kompozíció:
+    A kompozíció egy olyan asszociáció, mikot a tartalmazott objektum pontosan egy tartalmazó
+    objektumhoz tartozik, együtt jönnek létre, és semmisülnek meg. A z3a7.cpp-ben egy LZWBinFa-nak
+    1 db gyökere (Csomopont osztály) van. Ezt a diagram teli rombusszal jelöli.
+    

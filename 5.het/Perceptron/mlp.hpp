@@ -126,39 +126,6 @@ public:
       //cout << "Tetel 5: Osszesen lefoglalt memoria: " << (count/1024)/1024 << "MB" << endl << endl;
   }
 
-  /*Perceptron ( std::fstream & file )//ez a fájlból olvasásos részért felel
-  {
-    file >> n_layers;
-
-    units = new double*[n_layers];
-    n_units = new int[n_layers];
-
-    for ( int i {0}; i < n_layers; ++i )
-      {
-        file >> n_units[i];
-
-        if ( i )
-          units[i] = new double [n_units[i]];
-      }
-
-    weights = new double**[n_layers-1];
-
-    for ( int i {1}; i < n_layers; ++i )
-      {
-        weights[i-1] = new double *[n_units[i]];
-
-        for ( int j {0}; j < n_units[i]; ++j )
-          {
-            weights[i-1][j] = new double [n_units[i-1]];
-
-            for ( int k {0}; k < n_units[i-1]; ++k )
-              {
-                file >> weights[i-1][j][k];
-              }
-          }
-      }
-  }*/
-
 
   double sigmoid ( double x )
   {
@@ -320,7 +287,7 @@ public:
   }
   void kiir ()
   {
-      std::cout << "layers: " << n_layers << std::endl;
+      //std::cout << "layers: " << n_layers << std::endl;
       double sum,avg;
       for ( int i {1}; i < n_layers; ++i )
       {
@@ -333,7 +300,7 @@ public:
                 }
             }
             avg=sum/n_units[i];
-            std::cout << "[" << i << "]: " << avg << " - " << n_units[i] << std::endl;
+            //std::cout << "[" << i << "]: " << avg << " - " << n_units[i] << std::endl;
       }
   }
 

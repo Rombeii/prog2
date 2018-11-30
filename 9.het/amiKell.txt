@@ -1,0 +1,9 @@
+1. tensorflow HelloWorld3 példát kell megcsinálni + saját kézzel írt számot is felismerjen 28*28-as fekete/fehér kép
+2. tensorflow 2 repo tensorflow repoban vannak példák, tuturialok, 1.12-es realease:
+    tensorflow/tensorflow/examples/tutorials/mnist/mnist-deep
+    ugynúgy kézzel rajzolt képet ismerjen felismerjen
+3. feladatot megcsinálni, saját kép, sokáig fog futni
+4. Tensorflow androidos példája
+    tensorflow/tensorflow/examples/android --> tensorflow classify
+                                                tensorflow detect
+5. ?!?!?!?!!???????!?!?!?!?!?!??!?!?!?!?!?!?!??!?!?!?!?!?!??!?!?!?!?!?!?!?!?!?!?!?!?!?!?

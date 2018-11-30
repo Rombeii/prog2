@@ -1,10 +1,23 @@
 CustomAllocator:
 
-A program futtatáskor létrehoz egy osztott memóriaterületet. Ezt az shmgett-el allokálljuk, shmel pedig felcsatoljuk.
-Ezek után létrej9n egy alloconj nevű, CustomAlloc<int> típusú objektum. Ez azért lesz hasznos, mert ennek segtségével
-érjük el az allocat változónak függvényét, amivel memóriát foglalhatunk.
-Ha ez kész, akkor egy osztott memória foglalására képes gyermekfolyamatot hozunk létre. Ezek után létrehozunk 1 vektort,
-és 3 számot teszünk bele.
+A feladat lényege az lenne, hogy létrehozzunk egy saját allokátort. Ennek feladata az, hogy a megadott értékeinket
+tárolja, és ha már nem akarjuk őket használni, akkor az általa biztosított memóriát fel is tudja szabadítani.
 
-Míg ez megy, addig a fő folyamatunk egy kicsit pihen, mikor a helyfoglalás befejeződik, a programunk kiolvassa a foglalt
-memóriából a beletöltött adatainkat;
+Magáról a programról:
+
+A program main függvényében először is létrehozunk egy osztott_memória változót, ez lesz majd az aréna, ezt a területet
+fogjuk felosztani, majd felszabadítani. Ezt az shmgett-el allokálljuk, shmel pedig felcsatoljuk. Ezek után létrehozzunk
+az arena-nkat. Ahogy már írtam, ez a terület lesz felosztva. Az arena-nak fontos a q mutatója, hiszen ez fog mutatni a 
+még kiosztatlan terület elejére, ezt fogjuk növelgetni, mikor területet rendelünk értékeinkhez. Később létrehozunk egy 
+CostumAlloc<int> típusú objektumot, aminek beadjuk a példányosított arénánkat. Az CostumAllocatornak van allocate és 
+deallocate függvénye is. Az allocate függvény, ahogy a neve is utal rá, ez fogja a memóriát foglalni. Annak érdekében,
+hogy érthetőbb legyen a tevékenysége, mindig mikor meghívódik tudatja velünk, hogy hány objektunak akarunk helyet, hogy 
+mekkora helyet, stb. Ezek után létrejön egy alloconj nevű, CustomAlloc<int> típusú objektum.
+
+Ha ez kész, akkor egy osztott memória foglalására képes gyermekfolyamatot hozunk létre. Ezek után létrehozunk 1 vektort,
+és 3 számot teszünk bele. Míg ez megy, addig a fő folyamatunk egy kicsit pihen, mikor a helyfoglalás befejeződik, a 
+programunk kiolvassa a foglalt memóriából a beletöltött adatainkat;
+
+A futási képen jól látszik, hogy mindig a push_back váltja ki, hogy minél több területet foglaljon le. 1 elem esetén 1-nek
+eleget 2 esetén 2-nek eleget, 3-om esetén pedig már 4-nek eleget foglal le. Ha ezt tovább folytatnán, 5 esetén 8-at, de 9
+esetén már 16 értéknek elegendő helyet foglalna le.

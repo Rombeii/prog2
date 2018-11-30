@@ -2,12 +2,13 @@ package com.mehecske.mehecske;
 
 import android.graphics.Bitmap;
 import android.graphics.Canvas;
+import android.graphics.Rect;
 
 public class GameObject {
     private Bitmap bitmap;                                                                          //eredeti kép
     private Bitmap resizedBitmap;                                                                   //átméretezett kép
     private int speed;                                                                              //megadja, hogy milyen sebességgel mozog
-
+    private int speedX, speedY;
 
     private int currentX, currentY;                                                                 //jelenlegi koordináták
     private int towardsX, towardsY;                                                                 //azok a koordináták, ami felé halad
@@ -37,12 +38,15 @@ public class GameObject {
         this.towardsY = towardsY;
     }
 
+
+
     public void setBitmap(Bitmap bitmap) {
         this.bitmap = bitmap;
     }
 
     public void setResizedBitmap(Bitmap bitmap, double scale) {
         this.resizedBitmap = Bitmap.createScaledBitmap(bitmap, (int)(bitmap.getWidth()*scale), (int)(bitmap.getHeight()*scale), true);      //megadott arányban kicsinyíti a képet
+
     }
 
 

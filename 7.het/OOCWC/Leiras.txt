@@ -2,4 +2,16 @@ A scanf használata:
 
 A lexerben a scanf segítségével fogunk tudni adatokat beolvasni. A carlexer.ll-ben megtalálható, hogy milyen formájú
 kifejezések várhatóak. Ezek beolvasására használjuk a scanf függvényt. A függvény megvizsgálja a bejövő adatokat,
-és ha megfelelő a formátumuk, akkor feldolgozza őket, változóknak értékül adja.
+és ha megfelelő a formátumuk, akkor feldolgozza őket, változóknak értékül adja. A hálózatkezelésről konkrétan:
+(amit linkelt facebookon tanárúr): A myshmclient.hpp-ben a 
+while ( std::sscanf ( data+nn, "<OK %d %u %u %u>%n", &idd, &f, &t, &s, &n ) == 4 )
+    {
+      nn += n;
+      gangsters.push_back ( Gangster {idd, f, t, s} );
+    }
+
+vár magyarázatra. A ciklusban a sscanf-et úgy használjuk, hogy megadjuk neki, hogy honnan olvashatja az adatokat,
+és, hogy milyen formában találja meg őket. A while addig fog menni, amíg ki tudjuk olvasni azt a 4 változót, amelyik
+egy egész gengszter létrehozásához kell (idd, f, t ,s). A ciklus belsejében annyi történik, hogy ha kiolvastuk a változókat,
+akkor betöltjük az előre létrehozott std::vector<Gangster> gansters-be, és növeljük az nn-t, ami azért fontos, hogy mindig 
+máshonnan próbáljunk olvasni (A data a helye a gangstereknek, és ehhez adjuk hozzá az nn-t).

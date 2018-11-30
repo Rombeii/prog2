@@ -1,0 +1,28 @@
+A BBP algoritmus lefuttatása:
+
+10 a 6.-on jegy:
+
+Nyelv		másodperc
+C++		1.31
+C#		1.06
+C		1.36
+Java		1.07
+
+
+10 a 7.en jegy:
+
+Nyelv		másodperc
+C++		20.46
+C#		16.64
+C		20.27
+Java		15.64
+
+
+10 a 8.on jegy:
+
+Nyelv		másodperc
+C++		245.24
+C#		205.65
+C		245.46
+Java		202.01
+

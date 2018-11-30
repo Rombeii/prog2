@@ -1,9 +1,16 @@
-import java.io.*;
-import java.nio.charset.*;
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
+import java.io.File;
+import java.io.FileReader;
+import java.io.FileWriter;
 
 
 
 public class Homokozo{
+	
+	public static LZWBinFa binFa = new LZWBinFa();
+	
+	
     static void usage(){
         System.out.println("Usage: java Homokozo in_file out_file");
     }
@@ -15,47 +22,29 @@ public class Homokozo{
             System.exit(-1);
         }
         
-        File file = new File(args[0]); 
-
-        BufferedReader reader = new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                Charset.forName("UTF-8")
-            )
-        );
-
-        int b;                      
-        LZWBinFa binFa = new LZWBinFa();
-        boolean kommentben = false;
-
-        while((b = reader.read()) != -1){
-            //System.out.println((char)b);
-            char c = (char) b;
-
-            if(c == 0x0a)
-                break;
-        }
+        File beFile = new File(args[0]); 
+        File kiFile = new File(args[1]);
         
-        reader.close();
+        int b;
+        char c;
+        //LZWBinFa binFa = new LZWBinFa();
+        boolean kommentben = false;
+        
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(beFile));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(kiFile));
 
-        BufferedReader reader2 = new BufferedReader(
-            new InputStreamReader(
-                new FileInputStream(file),
-                Charset.forName("UTF-8")
-            )
-        );
 
+        while((b = bufferedReader.read()) != -1){
 
-        while((b = reader2.read()) != -1){
-            //System.out.println((char)b);
-            //char c = (char) b;
-
-            if(b == 0x3e){
+        	c = (char)b;
+        	//System.out.println(c);
+        	
+            if(c == '>'){
                 kommentben = true;
                 continue;
             }
                 
-            if(b == 0x0a){
+            if(c == '\n'){
                 kommentben = false;
                 continue;
             }
@@ -63,24 +52,36 @@ public class Homokozo{
             if(kommentben)
                 continue;
             
-            if(b == 0x4e)
+            if(c == 'N')
                 continue;
 
             for (int i = 0; i < 8; i++){
-                if ((b & 0x80)== 0x80)
+            	//System.out.println(c);
+                if ((c & 0x80) == 0x80) {
                     binFa.insert('1');
-                else
+                    System.out.print('1');
+                }
+                else {
                     binFa.insert('0');
-                b <<=1;
+                	System.out.print('0');
+                }
+                c <<= 1;
             }
                 
                 
         }
-
-        binFa.kiir(binFa.getGyoker());
+        
+        bufferedReader.close();
+        
+        
+        System.out.println();
+        binFa.kiir(binFa.getGyoker(), bufferedWriter);
         System.out.println("depth = " + binFa.getMelyseg());
         System.out.println("mean = " + binFa.getAtlag());
         System.out.println("var = " + binFa.getSzoras());
-    
+        bufferedWriter.write("depth = " + binFa.getMelyseg());
+        bufferedWriter.write("\nmean = " + binFa.getAtlag());
+        bufferedWriter.write("\nvar = " + binFa.getSzoras());
+        bufferedWriter.close();
     }
 }

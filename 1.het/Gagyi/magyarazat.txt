@@ -1,0 +1,19 @@
+A Gagyi1.java azért nem áll le soha, mert az Integer class a a -129-nél nagyobb és a 128-tól kisebb Integerek értékét gyorsítótárazza, de ha az Integer
+ezen az intervallumon kívül van, akkor már egy referenciát ad vissza nekünk. Ezért lesz a feltétel a Gagyi1-nél mindig true, a Gagyi2-nél pedig mindig 
+false
+
+
+
+
+
+
+
+public static Integer valueOf(int i) {
+
+    if (i >= IntegerCache.low && i <= IntegerCache.high)
+
+        return IntegerCache.cache[i + (-IntegerCache.low)];
+
+    return new Integer(i);
+
+}

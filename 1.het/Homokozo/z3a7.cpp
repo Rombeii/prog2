@@ -557,7 +557,7 @@ main (int argc, char *argv[])
 
     }
 
-    std::cout << binFa.kiir (); // így rajzolt ki a fát a korábbi verziókban de, hogy izgalmasabb legyen
+    //std::cout << binFa.kiir (); // így rajzolt ki a fát a korábbi verziókban de, hogy izgalmasabb legyen
     // a példa, azaz ki lehessen tolni az LZWBinFa-t kimeneti csatornára:
 
     kiFile << binFa;		// ehhez kell a globális operator<< túlterhelése, lásd fentebb
