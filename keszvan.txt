@@ -108,7 +108,7 @@
     Deep MNIST: kész, a mappában van kép, a program a tensorflow mnistDeep.py példája alapján készült a tanuló része, a felismerés része
     pedig a rendes Mnist-ből lett álakítva 
 
-    CIFAR-10:
+    CIFAR-10:kész, felismeri az őzet, és a verdákból az autót is
 
     TF objektum detektálója: kész, az app a telefonon rajta van, van 1-1 példa a programokra a mappában
 
