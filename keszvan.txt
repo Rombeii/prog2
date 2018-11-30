@@ -80,7 +80,7 @@
     Future tevékenység editor: kész, a program annyira jó, hogy szükség van egy időzítőre, mert nélküle órákat töltenénk
                                 el előtte. Ezt implementáltam.(Kép a mappában)
 
-    OOCWC Boost ASIO hálózatkezelése: kész
+    OOCWC Boost ASIO hálózatkezelése: kész, van magyarázat a mappában
 
     BrainB: kész, van egy txt, ami elmagyarázza a signal-slot mechanizmust, és a futásról is van kép
 
@@ -90,11 +90,11 @@
     SamuCam: -
 
 8.hét:
-    Port scan: kész, a port szkennelő forrásról a mappában van a leírás
+    Port scan: kész, a port szkennelő forrásról a mappában van a leírás, futásról van kép
 
     AOP: kész, az LZWBinFa forrásában megszámolja, hogy hány db 1-est és 0-st szúr be, futásról a mappában kép
 
-    Android játék: a játék működik, de még javításra szorul
+    Android játék: a játék működik, a méhecske virágokat szed, míg a tyúkok el akarják kapni
 
     Junit test: a program kész, feleslegesnek gondoltam, hogy kettéválasszam az AOP-től, így egy projectben vannak, tehát a forrása 
                 az AOP mappájában van. A Junit teszt mappájában van egy kép a futtatásról, és egy a feladat levezetéséről, erre alapoztam
@@ -106,7 +106,7 @@
     MNIST: kész, a mappában van a forráskód és a kép, tanárúr példája alapján csináltam, de módosítani kellett rajta, hogy működjön
 
     Deep MNIST: kész, a mappában van kép, a program a tensorflow mnistDeep.py példája alapján készült a tanuló része, a felismerés része
-    pedig a rendes Mnist-ből lett álakítva 
+                pedig a rendes Mnist-ből lett álakítva 
 
     CIFAR-10:kész, felismeri az őzet, és a verdákból az autót is
 
