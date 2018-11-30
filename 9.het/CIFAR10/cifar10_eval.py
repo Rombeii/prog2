@@ -63,7 +63,7 @@ def eval_once(saver, summary_writer, top_k_op, summary_op, logits):
     top_k_op: Top K op.
     summary_op: Summary op.
   """
-  print("eval_once")
+  #print("eval_once")
   with tf.Session() as sess:
     ckpt = tf.train.get_checkpoint_state(FLAGS.checkpoint_dir)
     if ckpt and ckpt.model_checkpoint_path:
@@ -93,13 +93,13 @@ def eval_once(saver, summary_writer, top_k_op, summary_op, logits):
       step = 0
        #while step < num_iter and not coord.should_stop():
         #predictions = sess.run([top_k_op])
-      print("elotte")
+      #print("elotte")
       predictions = sess.run([top_k_op])
-      print("xd")
+      #print("xd")
       #print(sess.run(logits[0]))
       classification = sess.run(tf.argmax(logits[0], 0))
       cifar10classes = ["airplane", "automobile", "bird", "cat", "deer", "dog", "frog", "horse", "ship", "truck"]
-      print(cifar10classes[classification])
+      print("A felismert forma: " + cifar10classes[classification])
       
       true_count += np.sum(predictions)
       step += 1
